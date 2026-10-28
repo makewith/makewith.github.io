@@ -1,0 +1,379 @@
+@import "@fontsource/m-plus-rounded-1c/400.css";
+@import "@fontsource/m-plus-rounded-1c/500.css";
+
+:root {
+  color-scheme: light dark;
+  --bg: #f6f4ef;
+  --fg: #23211d;
+  --muted: #6f6a62;
+  --line: #dedad2;
+  --chip: #ebe7df;
+  --photo: linear-gradient(135deg, #e6dfd2, #d6cdbd);
+  --heading: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", var(--sans);
+  --sans: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1d1c1a;
+    --fg: #eeebe5;
+    --muted: #a7a197;
+    --line: #3a3732;
+    --chip: #2c2a26;
+    --photo: linear-gradient(135deg, #34302a, #2a2722);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+}
+a {
+  color: inherit;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--heading);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+}
+h2,
+h3 {
+  font-weight: 500;
+}
+h3,
+.record-title {
+  margin: 0.25rem 0 0.75rem;
+  font-size: 1.125rem;
+}
+h2 a,
+h3 a {
+  text-decoration: none;
+}
+h2 a:hover,
+h3 a:hover {
+  text-decoration: underline;
+}
+p {
+  margin: 0 0 0.75rem;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* A lone "monospace" makes browsers size code from 13px instead of the body size. */
+code,
+pre {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+}
+
+.site {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.site-header,
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+}
+.site-header {
+  padding: 1.5rem 0;
+}
+.site-footer {
+  margin-top: 4rem;
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.8125rem;
+}
+.brand {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1.5rem;
+}
+.site-name {
+  font-family: var(--heading);
+  font-weight: 500;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+.site-footer .site-name {
+  font-size: 1.125rem;
+}
+.tagline {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.nav {
+  display: flex;
+  gap: 1.75rem;
+  font-family: var(--heading);
+  font-size: 0.875rem;
+}
+.nav a {
+  text-decoration: none;
+}
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.photo {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--photo);
+}
+.photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+.hero h1 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+.lead {
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.band {
+  padding: 3rem 0;
+  border-top: 1px solid var(--line);
+}
+main > .band:first-child {
+  padding-top: 2rem;
+  border-top: 0;
+}
+/* The footer supplies the space below the last section. */
+main > .band:last-child {
+  padding-bottom: 0;
+}
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.section-head h1,
+.section-head h2 {
+  margin: 0;
+}
+/* Page titles and home section headings share one size each across layouts. */
+.section-head h1,
+.prose h1 {
+  font-size: 1.875rem;
+}
+.section-head h2,
+.return h2 {
+  font-size: 1.375rem;
+}
+.section-head .sub {
+  /* Drops below the heading once less than this width is left beside it. */
+  flex: 1 1 16rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+.record-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1em;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+.record-meta time {
+  font-variant-numeric: tabular-nums;
+}
+.record-meta a {
+  text-decoration: none;
+}
+.record-meta a:hover {
+  text-decoration: underline;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+.tags li {
+  padding: 0.125rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--chip);
+  font-size: 0.6875rem;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+.feature.no-photo {
+  grid-template-columns: minmax(0, 40rem);
+}
+.feature-body h3 {
+  font-size: 1.375rem;
+}
+.feature-body > p {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.rows {
+  max-width: 48rem;
+  border-bottom: 1px solid var(--line);
+}
+.feature + .rows {
+  margin-top: 3rem;
+}
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 10rem;
+  gap: 2rem;
+  align-items: start;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
+}
+.row p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.row .tags {
+  margin-bottom: 0;
+}
+
+.return-body {
+  max-width: 40rem;
+}
+.return h2 {
+  margin: 0 0 1.5rem;
+}
+.return p {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.more {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: var(--heading);
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+.more:hover {
+  text-decoration: underline;
+}
+
+.prose {
+  max-width: 42rem;
+  margin-top: 2rem;
+}
+.prose h1 {
+  margin: 0.25rem 0 1.5rem;
+}
+.article-head {
+  margin-bottom: 1.5rem;
+}
+.article-head h1 {
+  margin-bottom: 0.5rem;
+}
+.article-head .tags {
+  margin: 1rem 0 0;
+}
+.prose h2 {
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.25rem;
+}
+.prose ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+.prose .tags {
+  padding-left: 0;
+  list-style: none;
+}
+.prose code {
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background: var(--chip);
+  font-size: 0.875em;
+}
+.prose pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: 6px;
+  /* Shiki writes its theme background inline on each block. */
+  background: var(--chip) !important;
+  line-height: 1.6;
+}
+.prose pre code {
+  padding: 0;
+  background: none;
+}
+@media (prefers-color-scheme: dark) {
+  .prose .shiki,
+  .prose .shiki span {
+    color: var(--shiki-dark) !important;
+  }
+}
+.prose [class*="language-"] > .lang,
+.prose [class*="language-"] > button.copy,
+.prose .header-anchor {
+  display: none;
+}
+.prose .more {
+  margin-top: 3rem;
+}
+
+@media (max-width: 720px) {
+  .hero,
+  .feature {
+    grid-template-columns: 1fr;
+  }
+  .row {
+    grid-template-columns: minmax(0, 1fr) 6rem;
+    gap: 1rem;
+  }
+  .hero-photo {
+    order: -1;
+  }
+  br.wide-only {
+    display: none;
+  }
+  .nav {
+    gap: 1.25rem;
+  }
+}
