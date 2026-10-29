@@ -8,7 +8,7 @@ import { voidMarkdown } from "@void/md/plugin";
 const testing = process.env.VITEST === "true";
 
 export default defineConfig({
-  plugins: testing ? [] : [voidPlugin(), voidReact({ react: { compiler: true } }), voidMarkdown()],
+  plugins: testing ? [] : [voidPlugin(), voidReact(), voidMarkdown()],
   test: {
     include: ["src/**/*.test.ts"],
   },
