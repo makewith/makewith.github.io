@@ -1,0 +1,4 @@
+{
+  "extends": ["github>honbin/renovate-config"],
+  "enabledManagers": ["npm", "github-actions", "asdf"]
+}
