@@ -5,7 +5,8 @@ import { placeImage, placeImagePaths, siteName, siteUrl, titleSuffix } from "#sr
 
 export default defineMiddleware(async (c, next) => {
   await next();
-  if (!c.res.headers.get("content-type")?.includes("text/html")) return;
+  // Error pages come from Void, without the site's title suffix, and are not shared.
+  if (!c.res.ok || !c.res.headers.get("content-type")?.includes("text/html")) return;
 
   const path = c.req.path.endsWith("/") ? c.req.path : `${c.req.path}/`;
   const record = records.find((r) => r.path === path);
