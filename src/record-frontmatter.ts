@@ -20,9 +20,11 @@ export interface RecordFields {
 // YAML reads an unquoted `date: 2026-11-10` as a timestamp, which reaches
 // pages as an ISO string (or a Date), so keep only the YYYY-MM-DD part.
 function formatRecordDate(value: unknown): string {
-  const text = value instanceof Date ? value.toISOString() : String(value ?? "");
-  return text.slice(0, 10);
+  if (value instanceof Date) return value.toISOString().slice(0, 10);
+  return typeof value === "string" ? value.slice(0, 10) : "";
 }
+
+const toText = (value: unknown) => (typeof value === "string" ? value : "");
 
 function toTags(value: unknown): string[] {
   if (Array.isArray(value)) return value.map(String);
@@ -32,10 +34,10 @@ function toTags(value: unknown): string[] {
 export function readRecord(frontmatter: Record<string, unknown>): RecordFields {
   const { authorUrl, image } = frontmatter;
   return {
-    title: String(frontmatter.title ?? ""),
+    title: toText(frontmatter.title),
     date: formatRecordDate(frontmatter.date),
-    author: { name: String(frontmatter.author ?? ""), url: typeof authorUrl === "string" ? authorUrl : undefined },
-    description: String(frontmatter.description ?? ""),
+    author: { name: toText(frontmatter.author), url: typeof authorUrl === "string" ? authorUrl : undefined },
+    description: toText(frontmatter.description),
     tags: toTags(frontmatter.tags),
     image: typeof image === "string" ? image : undefined,
   };
@@ -52,14 +54,17 @@ function isRecordDate(value: unknown): boolean {
 
 // Without these the record renders without its title, date, and author, or
 // links somewhere unexpected; records.ts fails the build when any are found.
-// An empty "authorUrl:" or "image:" reads as null and counts as not written.
+// An empty "description:", "authorUrl:", or "image:" reads as null and counts
+// as not written.
 export function frontmatterProblems(frontmatter: Record<string, unknown>): string[] {
   const problems = [];
   if (frontmatter.layout !== "article") problems.push('"layout: article"');
   if (typeof frontmatter.title !== "string" || frontmatter.title === "") problems.push('"title"');
   if (!isRecordDate(frontmatter.date)) problems.push('a "date" as YYYY-MM-DD');
   if (typeof frontmatter.author !== "string" || frontmatter.author === "") problems.push('"author"');
-  const { authorUrl, image } = frontmatter;
+  const { description, authorUrl, image } = frontmatter;
+  // A number or list would otherwise show up as its string form, such as "2026" or "a,b".
+  if (description != null && typeof description !== "string") problems.push('a text "description"');
   if (authorUrl != null && (typeof authorUrl !== "string" || !/^https?:\/\//.test(authorUrl))) {
     problems.push('an http(s) "authorUrl"');
   }

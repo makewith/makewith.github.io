@@ -25,8 +25,12 @@ describe("frontmatterProblems", () => {
     },
   );
 
-  it("treats an empty authorUrl or image as not written", () => {
-    expect(frontmatterProblems({ ...valid, authorUrl: null, image: null })).toEqual([]);
+  it("treats an empty description, authorUrl, or image as not written", () => {
+    expect(frontmatterProblems({ ...valid, description: null, authorUrl: null, image: null })).toEqual([]);
+  });
+
+  it.each([2026, ["a", "b"], { a: 1 }])("rejects description %j", (description) => {
+    expect(frontmatterProblems({ ...valid, description })).toEqual(['a text "description"']);
   });
 
   it.each(["https://honb.in", "http://example.com/me"])("accepts authorUrl %s", (authorUrl) => {
@@ -109,6 +113,12 @@ describe("readRecord", () => {
     ["2026-10-27", "2026-10-27"],
   ])("keeps only YYYY-MM-DD from date %s", (date, expected) => {
     expect(readRecord({ date }).date).toBe(expected);
+  });
+
+  it("reads non-string text fields as empty instead of their string form", () => {
+    const record = readRecord({ title: { a: 1 }, date: 20261114, author: ["x"], description: 2026 });
+
+    expect([record.title, record.date, record.author.name, record.description]).toEqual(["", "", "", ""]);
   });
 
   it("accepts a single tag and treats an empty one as none", () => {
