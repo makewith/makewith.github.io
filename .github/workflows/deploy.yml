@@ -23,6 +23,8 @@ jobs:
           node-version-file: .tool-versions
           cache: npm
       - run: npm ci
+      # public/ serves a copy of the font's license; fail if a font update changes it.
+      - run: cmp node_modules/@fontsource/m-plus-rounded-1c/LICENSE public/fonts/m-plus-rounded-1c-OFL.txt
       - run: npm run check
       - run: npm test
       - run: npm run build
