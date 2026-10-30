@@ -29,15 +29,14 @@ http://localhost:5173 で確認できます。
 トップページと一覧ページに反映されないことがあります。
 
 公開されるものと同じ形で確かめるときは、次のコマンドを使います。
-型チェック、lint、整形の確認、テスト、ビルドの順で、CI と同じことをします。
-整形の確認で引っかかったときは、`npx vp fmt` で直せます。
+型チェック、`vp check`(整形の確認、lint、設定ファイルも含めた型チェック)、テスト、ビルドの順で、CI と同じことをします。
+整形の確認で引っかかったときは、`npx vp check --fix` で直せます。
 記録の Markdown(`pages/` の `.md`)は、整形の対象に入っていません。
 書き出したファイルは `dist/client/` に入ります。
 
 ```sh
 npx tsc --noEmit
-npx vp lint
-npx vp fmt --check
+npx vp check
 npm test
 npm run build
 ```
@@ -93,6 +92,6 @@ PR で記録を送ってもらう場合は、本文に含まれる HTML が意�
 
 `main` に入ると、GitHub Actions がビルドして GitHub Pages に公開します。
 公開時は、`/making/` のような末尾スラッシュ付きの URL で開けるよう、CI で各ページの HTML を `x/index.html` の形に移します。
-PR では、型チェック、lint、整形の確認、テスト、ビルドだけを行います。
+PR では、同じ確認とビルドだけを行います。
 
 依存の更新は Renovate が PR で届けます。

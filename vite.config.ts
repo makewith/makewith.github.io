@@ -12,6 +12,10 @@ export default defineConfig({
   test: {
     include: ["src/**/*.test.ts"],
   },
+  // Type-aware checks also cover the root config files, which tsconfig.json leaves out.
+  lint: {
+    options: { typeAware: true, typeCheck: true },
+  },
   fmt: {
     printWidth: 120,
     // AGENTS.md is managed by Void. Records are left as written so a
