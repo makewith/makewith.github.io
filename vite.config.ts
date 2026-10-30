@@ -12,4 +12,10 @@ export default defineConfig({
   test: {
     include: ["src/**/*.test.ts"],
   },
+  fmt: {
+    printWidth: 120,
+    // AGENTS.md is managed by Void. Records are left as written so a
+    // formatting difference never fails a contributor's PR.
+    ignorePatterns: ["AGENTS.md", "pages/**/*.md"],
+  },
 });
