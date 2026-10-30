@@ -11,7 +11,11 @@ export default defineMiddleware(async (c, next) => {
   const path = c.req.path.endsWith("/") ? c.req.path : `${c.req.path}/`;
   const record = records.find((r) => r.path === path);
   const image = record?.image ?? (placeImagePaths.includes(path) ? placeImage : undefined);
-  const html = addOgTags(await c.res.text(), { path, isArticle: Boolean(record), image }, { name: siteName, url: siteUrl, titleSuffix });
+  const html = addOgTags(
+    await c.res.text(),
+    { path, isArticle: Boolean(record), image },
+    { name: siteName, url: siteUrl, titleSuffix },
+  );
 
   c.res = new Response(html, c.res);
 });

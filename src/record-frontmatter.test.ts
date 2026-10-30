@@ -18,9 +18,12 @@ describe("frontmatterProblems", () => {
     expect(frontmatterProblems({ ...valid, date })).toEqual([]);
   });
 
-  it.each(["2026-02-30", "2026-13-01", "2026/11/14", "11月14日", "2026-11-14xyz", ["2026-11-14"], 20261114])("rejects date %j", (date) => {
-    expect(frontmatterProblems({ ...valid, date })).toEqual(['a "date" as YYYY-MM-DD']);
-  });
+  it.each(["2026-02-30", "2026-13-01", "2026/11/14", "11月14日", "2026-11-14xyz", ["2026-11-14"], 20261114])(
+    "rejects date %j",
+    (date) => {
+      expect(frontmatterProblems({ ...valid, date })).toEqual(['a "date" as YYYY-MM-DD']);
+    },
+  );
 
   it("treats an empty authorUrl or image as not written", () => {
     expect(frontmatterProblems({ ...valid, authorUrl: null, image: null })).toEqual([]);
@@ -30,12 +33,17 @@ describe("frontmatterProblems", () => {
     expect(frontmatterProblems({ ...valid, authorUrl })).toEqual([]);
   });
 
-  it.each(["javascript:alert(1)", "//example.com", "https:honb.in", "honb.in", "mailto:a@example.com", 'javascript:alert("https://")', ["https://honb.in"]])(
-    "rejects authorUrl %j",
-    (authorUrl) => {
-      expect(frontmatterProblems({ ...valid, authorUrl })).toEqual(['an http(s) "authorUrl"']);
-    },
-  );
+  it.each([
+    "javascript:alert(1)",
+    "//example.com",
+    "https:honb.in",
+    "honb.in",
+    "mailto:a@example.com",
+    'javascript:alert("https://")',
+    ["https://honb.in"],
+  ])("rejects authorUrl %j", (authorUrl) => {
+    expect(frontmatterProblems({ ...valid, authorUrl })).toEqual(['an http(s) "authorUrl"']);
+  });
 
   it.each(["/images/a.jpg", "/images/2026/a.jpg"])("accepts image %s", (image) => {
     expect(frontmatterProblems({ ...valid, image })).toEqual([]);

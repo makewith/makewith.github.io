@@ -1,21 +1,11 @@
 {
-  "devDependencies": {
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "@void/md": "1.3.0",
-    "@void/react": "1.3.0",
-    "typescript": "^7.0.2",
-    "vite": "npm:@voidzero-dev/vite-plus-core@^1.3.0",
-    "vite-plus": "^1.3.0",
-    "void": "^1.3.0"
-  },
   "name": "makewith-github-io",
   "private": true,
+  "type": "module",
   "imports": {
     "#src/components/*": "./src/components/*.tsx",
     "#src/*": "./src/*.ts"
   },
-  "type": "module",
   "scripts": {
     "dev": "vp dev",
     "build": "vp build",
@@ -28,6 +18,16 @@
     "hono": "^4.11.9",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@void/md": "1.3.0",
+    "@void/react": "1.3.0",
+    "typescript": "^7.0.2",
+    "vite": "npm:@voidzero-dev/vite-plus-core@^1.3.0",
+    "vite-plus": "^1.3.0",
+    "void": "^1.3.0"
   },
   "overrides": {
     "vite": "$vite"

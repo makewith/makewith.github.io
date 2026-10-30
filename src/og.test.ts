@@ -64,7 +64,9 @@ describe("addOgTags", () => {
     );
 
     expect(html).not.toContain("<script>");
-    expect(html).toContain('<link rel="canonical" href="https://makewith.jp/a&quot;&gt;&lt;script&gt;x&lt;/script&gt;/">');
+    expect(html).toContain(
+      '<link rel="canonical" href="https://makewith.jp/a&quot;&gt;&lt;script&gt;x&lt;/script&gt;/">',
+    );
   });
 
   it("uses article for records and website otherwise", () => {
@@ -94,9 +96,9 @@ describe("addOgTags", () => {
   });
 
   it("fails when <title> does not end with the site name", () => {
-    expect(() => addOgTags("<html><head><title>t | other</title></head></html>", { path: "/", isArticle: false }, site)).toThrow(
-      '<title> does not end with " | makewith": /',
-    );
+    expect(() =>
+      addOgTags("<html><head><title>t | other</title></head></html>", { path: "/", isArticle: false }, site),
+    ).toThrow('<title> does not end with " | makewith": /');
   });
 
   it("fails without </head> or <title>", () => {

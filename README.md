@@ -74,15 +74,15 @@ PR で記録を送ってもらう場合は、本文に含まれる HTML が意�
 
 ## ファイルの置き場所
 
-| 場所 | 中身 |
-|---|---|
-| `pages/` | ページ。`index.island.tsx` がトップ、`(prose)/about.md` が About |
-| `pages/making/` | 一覧ページと記録 |
-| `pages/_layouts/article.island.tsx` | 記録のページのレイアウト |
-| `pages/style.css` | サイト全体の CSS |
-| `src/` | 部品(`components/`)、記録の集め方(`records.ts`)、記録の frontmatter の読み方と確認(`record-frontmatter.ts` とそのテスト)、OGP のタグの作り方(`og.ts` とそのテスト)、サイトの設定(`site.ts`) |
-| `middleware/01.og.ts` | 各ページに OGP と canonical のタグを足す処理(中身は `src/og.ts`) |
-| `public/` | そのまま公開されるファイル(画像、favicon) |
+| 場所                                | 中身                                                                                                                                                                                        |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pages/`                            | ページ。`index.island.tsx` がトップ、`(prose)/about.md` が About                                                                                                                            |
+| `pages/making/`                     | 一覧ページと記録                                                                                                                                                                            |
+| `pages/_layouts/article.island.tsx` | 記録のページのレイアウト                                                                                                                                                                    |
+| `pages/style.css`                   | サイト全体の CSS                                                                                                                                                                            |
+| `src/`                              | 部品(`components/`)、記録の集め方(`records.ts`)、記録の frontmatter の読み方と確認(`record-frontmatter.ts` とそのテスト)、OGP のタグの作り方(`og.ts` とそのテスト)、サイトの設定(`site.ts`) |
+| `middleware/01.og.ts`               | 各ページに OGP と canonical のタグを足す処理(中身は `src/og.ts`)                                                                                                                            |
+| `public/`                           | そのまま公開されるファイル(画像、favicon)                                                                                                                                                   |
 
 `pages/` や `middleware/` から `src/` を読み込むときは、`../src/` ではなく `#src/components/Photo` のように `#src/` から書きます(`package.json` の `imports` で設定しています)。
 
