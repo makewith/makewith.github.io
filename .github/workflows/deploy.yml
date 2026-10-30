@@ -24,6 +24,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx tsc --noEmit
+      - run: npx vp lint
       - run: npm test
       - run: npm run build
       # Links and canonical URLs end with a slash (/making/), but Void writes
