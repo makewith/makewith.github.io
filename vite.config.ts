@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig } from "vite-plus";
 import { voidPlugin } from "void";
 import { voidReact } from "@void/react/plugin";
 import { voidMarkdown } from "@void/md/plugin";
