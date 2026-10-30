@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "vp dev",
     "build": "vp build",
+    "check": "vp check",
     "test": "vp test",
     "preview": "vp preview",
     "postinstall": "void prepare"

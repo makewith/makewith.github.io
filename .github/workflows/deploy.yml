@@ -23,7 +23,7 @@ jobs:
           node-version-file: .tool-versions
           cache: npm
       - run: npm ci
-      - run: npx vp check
+      - run: npm run check
       - run: npm test
       - run: npm run build
       # Links and canonical URLs end with a slash (/making/), but Void writes
