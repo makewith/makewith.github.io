@@ -293,6 +293,11 @@ main > .band:last-child {
 .more:hover {
   text-decoration: underline;
 }
+.more-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
 .prose {
   max-width: 42rem;

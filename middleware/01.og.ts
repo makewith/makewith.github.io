@@ -9,6 +9,8 @@ export default defineMiddleware(async (c, next) => {
   if (!c.res.ok || !c.res.headers.get("content-type")?.includes("text/html")) return;
 
   const path = c.req.path.endsWith("/") ? c.req.path : `${c.req.path}/`;
+  // Prerendering /404 succeeds, but the page stands in for missing URLs and has no canonical of its own.
+  if (path === "/404/") return;
   const record = records.find((r) => r.path === path);
   const image = record?.image ?? (placeImagePaths.includes(path) ? placeImage : undefined);
   const html = addOgTags(
