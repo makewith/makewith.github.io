@@ -5,7 +5,8 @@
 
 サイトは [Void](https://void.cloud) と React で作り、すべてのページをビルド時に HTML として書き出しています。
 公開先は GitHub Pages です。
-見出しとロゴのフォントは [M PLUS Rounded 1c](https://fonts.google.com/specimen/M+PLUS+Rounded+1c)(SIL Open Font License 1.1、[ライセンス](https://makewith.jp/fonts/m-plus-rounded-1c-OFL.txt))で、[Fontsource](https://fontsource.org) のパッケージから自前で配信しています。
+見出しやロゴ、ナビゲーション、矢印付きのリンクには [M PLUS Rounded 1c](https://fonts.google.com/specimen/M+PLUS+Rounded+1c) を使っています(SIL Open Font License 1.1、[ライセンス全文](https://makewith.jp/fonts/m-plus-rounded-1c-OFL.txt))。
+[Fontsource](https://fontsource.org) のパッケージから自前で配信しています。
 
 ## 手元で動かす
 
