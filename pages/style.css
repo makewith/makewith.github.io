@@ -1,26 +1,21 @@
-@import "@fontsource/m-plus-rounded-1c/400.css";
-@import "@fontsource/m-plus-rounded-1c/500.css";
+@import "@fontsource/nunito/900.css";
+@import "@fontsource/zen-maru-gothic/400.css";
+@import "@fontsource/zen-maru-gothic/500.css";
 
+@import "../src/brand/tokens.css";
+
+/* Colors come from the makerbee brand: src/brand/tokens.css is an unedited copy of makerbee-brand's tokens.css. */
 :root {
   color-scheme: light dark;
-  --bg: #f6f4ef;
-  --fg: #23211d;
-  --muted: #6f6a62;
-  --line: #dedad2;
-  --chip: #ebe7df;
-  --photo: linear-gradient(135deg, #e6dfd2, #d6cdbd);
-  --heading: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", var(--sans);
+  --bg: var(--ground);
+  --fg: var(--ink);
+  --muted: var(--ink-muted);
+  --chip: var(--surface);
+  --photo: var(--line);
+  --display: var(--font-display);
+  --heading: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", var(--sans);
+  /* The brand sets Zen Maru Gothic for body text too, but records are read at length, so body text stays on the system gothic. */
   --sans: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #1d1c1a;
-    --fg: #eeebe5;
-    --muted: #a7a197;
-    --line: #3a3732;
-    --chip: #2c2a26;
-    --photo: linear-gradient(135deg, #34302a, #2a2722);
-  }
 }
 
 * {
@@ -37,17 +32,14 @@ body {
 a {
   color: inherit;
 }
+/* Zen Maru Gothic is light at 400 and loosely spaced, so headings use 500 and slightly tighter tracking. */
 h1,
 h2,
 h3 {
   font-family: var(--heading);
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: 0.06em;
-}
-h2,
-h3 {
   font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
 }
 h3,
 .record-title {
@@ -106,13 +98,28 @@ pre {
   gap: 0.25rem 1.5rem;
 }
 .site-name {
-  font-family: var(--heading);
-  font-weight: 500;
-  font-size: 1.5rem;
+  font-family: var(--display);
+  font-weight: 900;
+  letter-spacing: -0.02em;
   text-decoration: none;
 }
+.site-name-accent {
+  color: var(--leaf-text);
+}
 .site-footer .site-name {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
+}
+/* The header pairs the mark with the logotype, sized as on makerbee.jp; the footer shows the logotype alone. */
+.site-header .site-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.75rem;
+}
+.site-mark img {
+  display: block;
+  width: 44px;
+  height: auto;
 }
 .tagline {
   color: var(--muted);
@@ -227,7 +234,7 @@ main > .band:last-child {
 .tags li {
   padding: 0.125rem 0.75rem;
   border: 1px solid var(--line);
-  border-radius: 4px;
+  border-radius: var(--radius-pill);
   background: var(--chip);
   font-size: 0.6875rem;
 }

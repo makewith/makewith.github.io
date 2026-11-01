@@ -1,0 +1,61 @@
+/* makerbee — generated from tokens.json. Do not edit by hand. */
+:root, [data-theme="light"] {
+  --ground: #f6f2ea;
+  --surface: #ffffff;
+  --line: #e8e2d6;
+  --ink: #233042;
+  --ink-muted: #4f4c5a;
+  --navy: #233042;
+  --white: #ffffff;
+  --coral: #e0563a;
+  --coral-text: #c2452b;
+  --coral-soft: #ff8a70;
+  --leaf: #5e9e6e;
+  --leaf-text: #3f7a50;
+  --leaf-soft: #8ccb9a;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 40px;
+  --space-5: 64px;
+  --space-6: 104px;
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+  --font-display: "Nunito", "Zen Maru Gothic", system-ui, sans-serif;
+  --font-body: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", system-ui, sans-serif;
+}
+[data-theme="dark"] {
+  --ground: #1b2433;
+  --surface: #233042;
+  --line: #34405a;
+  --ink: #f6f2ea;
+  --ink-muted: #c9ccd4;
+  --navy: #233042;
+  --white: #ffffff;
+  --coral: #ff8a70;
+  --coral-text: #ff8a70;
+  --coral-soft: #ff8a70;
+  --leaf: #8ccb9a;
+  --leaf-text: #8ccb9a;
+  --leaf-soft: #8ccb9a;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --ground: #1b2433;
+    --surface: #233042;
+    --line: #34405a;
+    --ink: #f6f2ea;
+    --ink-muted: #c9ccd4;
+    --navy: #233042;
+    --white: #ffffff;
+    --coral: #ff8a70;
+    --coral-text: #ff8a70;
+    --coral-soft: #ff8a70;
+    --leaf: #8ccb9a;
+    --leaf-text: #8ccb9a;
+    --leaf-soft: #8ccb9a;
+  }
+}

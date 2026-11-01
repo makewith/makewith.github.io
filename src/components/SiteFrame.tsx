@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { navItems, siteName, tagline } from "../site";
+import { navItems, tagline } from "../site";
 
 function Nav() {
   return (
@@ -15,12 +15,25 @@ function Nav() {
   );
 }
 
+// The brand's logotype: only "with" takes the makewith accent color.
+function Wordmark() {
+  return (
+    <span>
+      make<span className="site-name-accent">with</span>
+    </span>
+  );
+}
+
 export default function SiteFrame({ children }: { children: ReactNode }) {
   return (
     <div className="site">
       <header className="site-header">
         <a href="/" className="site-name">
-          {siteName}
+          <picture className="site-mark">
+            <source srcSet="/brand/makewith-mark-reverse.svg" media="(prefers-color-scheme: dark)" />
+            <img src="/brand/makewith-mark.svg" alt="" width="44" height="41" />
+          </picture>
+          <Wordmark />
         </a>
         <Nav />
       </header>
@@ -28,7 +41,7 @@ export default function SiteFrame({ children }: { children: ReactNode }) {
       <footer className="site-footer">
         <div className="brand">
           <a href="/" className="site-name">
-            {siteName}
+            <Wordmark />
           </a>
           <span className="tagline">{tagline}</span>
         </div>

@@ -5,8 +5,12 @@
 
 サイトは [Void](https://void.cloud) と React で作り、すべてのページをビルド時に HTML として書き出しています。
 公開先は GitHub Pages です。
-見出しやロゴ、ナビゲーション、矢印付きのリンクには [M PLUS Rounded 1c](https://fonts.google.com/specimen/M+PLUS+Rounded+1c) を使っています(SIL Open Font License 1.1、[ライセンス全文](https://makewith.jp/fonts/m-plus-rounded-1c-OFL.txt))。
+色と書体は、makerbee のブランドの決まりに合わせています。
+色は、ブランドの `tokens.css` をそのまま写した `src/brand/tokens.css` から読み込んでいます。
+ブランドの色が変わったら、このファイルを写し直します(手で書き換えません)。
+ロゴには [Nunito](https://fonts.google.com/specimen/Nunito)、見出しやナビゲーション、矢印付きのリンクには [Zen Maru Gothic](https://fonts.google.com/specimen/Zen+Maru+Gothic) を使っています(どちらも SIL Open Font License 1.1、ライセンス全文は [Nunito](https://makewith.jp/fonts/nunito-OFL.txt)、[Zen Maru Gothic](https://makewith.jp/fonts/zen-maru-gothic-OFL.txt))。
 [Fontsource](https://fontsource.org) のパッケージから自前で配信しています。
+本文は、長く読んでも疲れないよう、端末のフォントのままです。
 
 ## 手元で動かす
 
@@ -77,15 +81,15 @@ PR で記録を送ってもらう場合は、本文に含まれる HTML が意�
 
 ## ファイルの置き場所
 
-| 場所                                | 中身                                                                                                                                                                                        |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pages/`                            | ページ。`index.island.tsx` がトップ、`(prose)/about.md` が About、`404.island.tsx` が見つからない URL のページ                                                                              |
-| `pages/making/`                     | 一覧ページと記録                                                                                                                                                                            |
-| `pages/_layouts/article.island.tsx` | 記録のページのレイアウト                                                                                                                                                                    |
-| `pages/style.css`                   | サイト全体の CSS                                                                                                                                                                            |
-| `src/`                              | 部品(`components/`)、記録の集め方(`records.ts`)、記録の frontmatter の読み方と確認(`record-frontmatter.ts` とそのテスト)、OGP のタグの作り方(`og.ts` とそのテスト)、サイトの設定(`site.ts`) |
-| `middleware/01.og.ts`               | 各ページに OGP と canonical のタグを足す処理(中身は `src/og.ts`)                                                                                                                            |
-| `public/`                           | そのまま公開されるファイル(画像、favicon、フォントのライセンス)                                                                                                                             |
+| 場所                                | 中身                                                                                                                                                                                                                                   |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pages/`                            | ページ。`index.island.tsx` がトップ、`(prose)/about.md` が About、`404.island.tsx` が見つからない URL のページ                                                                                                                         |
+| `pages/making/`                     | 一覧ページと記録                                                                                                                                                                                                                       |
+| `pages/_layouts/article.island.tsx` | 記録のページのレイアウト                                                                                                                                                                                                               |
+| `pages/style.css`                   | サイト全体の CSS                                                                                                                                                                                                                       |
+| `src/`                              | 部品(`components/`)、記録の集め方(`records.ts`)、記録の frontmatter の読み方と確認(`record-frontmatter.ts` とそのテスト)、OGP のタグの作り方(`og.ts` とそのテスト)、サイトの設定(`site.ts`)、ブランドから写した色の `brand/tokens.css` |
+| `middleware/01.og.ts`               | 各ページに OGP と canonical のタグを足す処理(中身は `src/og.ts`)                                                                                                                                                                       |
+| `public/`                           | そのまま公開されるファイル(画像、favicon、フォントのライセンス、ブランドから写したシンボルの `brand/`)                                                                                                                                 |
 
 `pages/` や `middleware/` から `src/` を読み込むときは、`../src/` ではなく `#src/components/Photo` のように `#src/` から書きます(`package.json` の `imports` で設定しています)。
 

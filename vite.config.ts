@@ -18,8 +18,9 @@ export default defineConfig({
   },
   fmt: {
     printWidth: 120,
-    // AGENTS.md is managed by Void. Records are left as written so a
-    // formatting difference never fails a contributor's PR.
-    ignorePatterns: ["AGENTS.md", "pages/**/*.md"],
+    // AGENTS.md is managed by Void, and src/brand/ holds unedited copies of the
+    // brand files. Records are left as written so a formatting difference never
+    // fails a contributor's PR.
+    ignorePatterns: ["AGENTS.md", "pages/**/*.md", "src/brand/**"],
   },
 });

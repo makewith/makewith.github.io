@@ -23,8 +23,10 @@ jobs:
           node-version-file: .tool-versions
           cache: npm
       - run: npm ci
-      # public/ serves a copy of the font's license; fail if a font update changes it.
-      - run: cmp node_modules/@fontsource/m-plus-rounded-1c/LICENSE public/fonts/m-plus-rounded-1c-OFL.txt
+      # public/ serves copies of the fonts' licenses; fail if a font update changes them.
+      - run: |
+          cmp node_modules/@fontsource/nunito/LICENSE public/fonts/nunito-OFL.txt
+          cmp node_modules/@fontsource/zen-maru-gothic/LICENSE public/fonts/zen-maru-gothic-OFL.txt
       - run: npm run check
       - run: npm test
       - run: npm run build
