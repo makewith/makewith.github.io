@@ -2,7 +2,7 @@ import Photo from "#src/components/Photo";
 import RecordRow from "#src/components/RecordRow";
 import RecordText from "#src/components/RecordText";
 import { records } from "#src/records";
-import { placeImage } from "#src/site";
+import { placeImage, taglineLines } from "#src/site";
 
 const [latest, ...others] = records;
 
@@ -12,9 +12,9 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero-text">
           <h1>
-            つくる人が集まり、
+            {taglineLines[0]}
             <br />
-            つくり続ける場所。
+            {taglineLines[1]}
           </h1>
           <div className="lead">
             <p>何かをつくりたい。少しずつつくっている。</p>

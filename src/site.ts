@@ -3,7 +3,9 @@ export const siteName = "makewith";
 // og:title, since og:site_name already carries the name.
 export const titleSuffix = ` | ${siteName}`;
 export const siteUrl = "https://makewith.jp";
-export const tagline = "つくる人が集まり、つくり続ける場所。";
+// The home page heading breaks the tagline after the comma; the footer runs it on one line.
+export const taglineLines = ["つくる人が集まり、", "つくり続ける場所。"] as const;
+export const tagline = taglineLines.join("");
 // The meetup photo stands for the place itself, so only pages about the
 // place use it; a record shows its own image or none.
 export const placeImage = "/images/mokumoku-past.jpg";
