@@ -33,6 +33,10 @@ body {
 a {
   color: inherit;
 }
+/* Links take the makewith accent on hover, as makerbee.jp's take its coral. */
+a:hover {
+  color: var(--leaf-text);
+}
 /* Zen Maru Gothic is light at 400 and loosely spaced, so headings use 500 and slightly tighter tracking. */
 h1,
 h2,
@@ -50,10 +54,6 @@ h3,
 h2 a,
 h3 a {
   text-decoration: none;
-}
-h2 a:hover,
-h3 a:hover {
-  text-decoration: underline;
 }
 p {
   margin: 0 0 0.75rem;
@@ -104,6 +104,9 @@ pre {
   letter-spacing: -0.02em;
   text-decoration: none;
 }
+.site-name:hover {
+  color: inherit;
+}
 .site-name-accent {
   color: var(--leaf-text);
 }
@@ -134,9 +137,6 @@ pre {
 }
 .nav a {
   text-decoration: none;
-}
-.nav a:hover {
-  text-decoration: underline;
 }
 
 .photo {
@@ -225,9 +225,6 @@ main > .band:last-child {
 .record-meta a {
   text-decoration: none;
 }
-.record-meta a:hover {
-  text-decoration: underline;
-}
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -299,9 +296,6 @@ main > .band:last-child {
   font-family: var(--heading);
   font-size: 0.875rem;
   text-decoration: none;
-}
-.more:hover {
-  text-decoration: underline;
 }
 .more-links {
   display: flex;
