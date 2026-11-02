@@ -1,3 +1,4 @@
+@import "@fontsource/nunito/800.css";
 @import "@fontsource/nunito/900.css";
 @import "@fontsource/zen-maru-gothic/400.css";
 @import "@fontsource/zen-maru-gothic/500.css";
@@ -129,11 +130,14 @@ pre {
   color: var(--muted);
   font-size: 0.75rem;
 }
+/* English labels take the brand's display face, as makerbee.jp's "English" button does; size keeps them below the logotype. */
 .nav {
   display: flex;
   gap: 1.75rem;
-  font-family: var(--heading);
-  font-size: 0.875rem;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 0.9375rem;
+  letter-spacing: normal;
 }
 .nav a {
   text-decoration: none;
