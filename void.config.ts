@@ -3,6 +3,7 @@ import { titleSuffix } from "./src/site";
 
 export default defineConfig({
   output: "static",
+  routing: { trailingSlash: true },
   head: {
     titleTemplate: `%s${titleSuffix}`,
     htmlAttrs: { lang: "ja" },

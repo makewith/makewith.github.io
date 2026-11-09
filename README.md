@@ -96,7 +96,7 @@ PR で記録を送ってもらう場合は、本文に含まれる HTML が意�
 ## 公開
 
 `main` に入ると、GitHub Actions がビルドして GitHub Pages に公開します。
-公開時は、`/making/` のような末尾スラッシュ付きの URL で開けるよう、CI で各ページの HTML を `x/index.html` の形に移します。
+`/making/` のような末尾スラッシュ付きの URL で開けるよう、`void.config.ts` の `routing.trailingSlash` で各ページを `x/index.html` の形に書き出します。
 PR では公開せず、`npm run check`、テスト、ビルドまでを行います。
 
 依存の更新は Renovate が PR で届けます。
