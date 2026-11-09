@@ -356,6 +356,23 @@ main > .band:last-child {
   padding: 0;
   background: none;
 }
+.prose table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 0 0 1rem;
+  border-collapse: collapse;
+}
+.prose th,
+.prose td {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--line);
+  text-align: left;
+}
+.prose th {
+  background: var(--chip);
+  font-weight: 600;
+}
 @media (prefers-color-scheme: dark) {
   .prose .shiki,
   .prose .shiki span {
