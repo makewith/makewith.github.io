@@ -249,9 +249,6 @@ main > .band:last-child {
   gap: 2.5rem;
   align-items: start;
 }
-.feature.no-photo {
-  grid-template-columns: minmax(0, 40rem);
-}
 .feature-body h3 {
   font-size: 1.375rem;
 }

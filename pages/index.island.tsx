@@ -4,7 +4,11 @@ import RecordText from "#src/components/RecordText";
 import { records } from "#src/records";
 import { placeImage, taglineLines } from "#src/site";
 
-const [latest, ...others] = records;
+const [latest] = records;
+// Only a record with a photo gets the large two-column slot; without one,
+// the larger heading alone set it apart too little to be worth the gap.
+const featured = latest?.image ? latest : undefined;
+const listed = records.slice(featured ? 1 : 0, 4);
 
 export default function HomePage() {
   return (
@@ -41,23 +45,25 @@ export default function HomePage() {
             <h2>つくることの記録</h2>
             <span className="sub">完成したものだけでなく、つくっている途中のことも。</span>
           </div>
-          <div className={latest.image ? "feature" : "feature no-photo"}>
-            {latest.image && <Photo src={latest.image} ratio="16 / 9" />}
-            <div className="feature-body">
-              <RecordText record={latest} heading="h3" />
-            </div>
-          </div>
-          {others.length > 0 && (
-            <>
-              <div className="rows">
-                {others.slice(0, 3).map((record) => (
-                  <RecordRow key={record.path} record={record} heading="h3" />
-                ))}
+          {featured?.image && (
+            <div className="feature">
+              <Photo src={featured.image} ratio="16 / 9" />
+              <div className="feature-body">
+                <RecordText record={featured} heading="h3" />
               </div>
-              <a href="/making/" className="more">
-                つくることの記録の一覧へ →
-              </a>
-            </>
+            </div>
+          )}
+          {listed.length > 0 && (
+            <div className="rows">
+              {listed.map((record) => (
+                <RecordRow key={record.path} record={record} heading="h3" />
+              ))}
+            </div>
+          )}
+          {records.length > 1 && (
+            <a href="/making/" className="more">
+              つくることの記録の一覧へ →
+            </a>
           )}
         </section>
       )}
