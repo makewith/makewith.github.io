@@ -262,10 +262,10 @@ main > .band:last-child {
 
 .rows {
   max-width: 48rem;
-  border-bottom: 1px solid var(--line);
 }
 .feature + .rows {
   margin-top: 3rem;
+  border-top: 1px solid var(--line);
 }
 .row {
   display: grid;
@@ -273,6 +273,9 @@ main > .band:last-child {
   gap: 2rem;
   align-items: start;
   padding: 1.5rem 0;
+}
+/* Lines only separate records; headings, links, and section borders already bound the list. */
+.row + .row {
   border-top: 1px solid var(--line);
 }
 .row p {
