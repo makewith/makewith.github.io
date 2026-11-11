@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vp dev",
-    "build": "vp build",
+    "build": "vp build && node scripts/sitemap.ts",
     "check": "vp check",
     "test": "vp test",
     "preview": "vp preview",
